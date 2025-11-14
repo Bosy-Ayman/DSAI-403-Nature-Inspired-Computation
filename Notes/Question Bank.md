@@ -178,34 +178,34 @@
 
 ## Lecture 6: Ant Colony Optimization (ACO)
 
-|Definition|Answer Word|
-|---|---|
-|A metaheuristic where "artificial ants" _constructively build_ solutions (e.g., a path). They deposit "pheromone" on good solution components, which probabilistically attracts more ants.|Ant Colony Optimization (ACO)|
-|The simulated chemical trail in ACO used for indirect, environmental memory. Ants deposit it on good solutions, making those components more attractive to future ants.|Pheromone|
-|A mechanism of indirect coordination where one agent modifies the environment (e.g., leaves pheromone) and others react to that modification later. This allows complex behavior without central control.|Stigmergy|
-|The positive feedback loop in ACO. A good path gets more pheromone, attracting more ants, which deposit more pheromone. Shorter paths reinforce faster, amplifying the best solution's signal.|Autocatalysis|
-|The _a priori_ heuristic in ACO (often $1/d_{ij}$), representing a move's "desirability" _before_ pheromone. This greedy information guides ants, especially early in the search.|Visibility ($\eta_{ij}$)|
-|The process in ACO where pheromone trails decay. This "forgetting" mechanism prevents mediocre paths from "locking in" the swarm, allowing it to forget bad paths and adapt.|Pheromone Evaporation ($\rho$)|
-|The path-finding problem that inspired ACO, where real ants find the shortest route between their nest and a food source.|Shortest Path Problem|
-|The starting point for all ants in an ACO simulation, representing the source node.|Nest|
-|The target for the ants, representing the destination node or the completion of a solution.|Food|
-|The formula $p_k(i,j)$ that combines pheromone ($\tau$) and visibility ($\eta$) to determine the likelihood of ant $k$ choosing to move from node $i$ to node $j$.|Probability Rule (ACO)|
-|The _current_ amount of pheromone on an edge or solution component, denoted as $\tau_{ij}$.|Pheromone Intensity|
-|The parameter ($\alpha$) that controls the influence of the pheromone trail. A high $\alpha$ makes ants _exploit_ known good paths.|Pheromone Weight ($\alpha$)|
-|The parameter ($\beta$) that controls the influence of the heuristic visibility. A high $\beta$ makes ants act greedily, preferring locally shorter edges.|Visibility Weight ($\beta$)|
-|The effect of a high $\alpha$ (pheromone weight), where ants strongly follow existing trails, leading to rapid exploitation but risking local optima.|High $\alpha$ (effect)|
-|The effect of a high $\beta$ (visibility weight), where ants strongly prefer the locally "best" or "shortest" next step, making the search greedy.|High $\beta$ (effect)|
-|The overall process of modifying pheromone levels, combining both evaporation (decay) and deposition (reinforcement).|Pheromone Update Rule|
-|The formula ($\tau_{ij} \leftarrow (1-\rho) \times \tau_{ij}$) that reduces pheromone strength on all paths over time, allowing the swarm to "forget" bad solutions.|Pheromone Evaporation Formula|
-|The process of adding new pheromone ($\Delta\tau$) to paths that were part of good solutions found by ants.|Pheromone Deposition|
-|The amount of pheromone deposited by a single ant $k$ on edge $(i,j)$, often inversely proportional to the ant's total path length $L_k$.|$\Delta \tau_{ij}^k$|
-|A constant (Q) that scales the amount of pheromone deposited by ants.|Pheromone Constant (Q)|
-|The total length (or cost) of the solution (path) constructed by ant $k$. Shorter $L_k$ leads to higher pheromone deposits.|Path Length ($L_k$)|
-|The total number of ants ($m$) in the population that build solutions in each iteration.|Number of Ants (m)|
-|A key feature of ACO where ants _build_ solutions piece-by-piece rather than starting with a complete solution and improving it.|Constructive (Algorithm)|
-|The probability of an ant moving from one node to another, calculated by the main ACO probability rule.|Transition Probability|
-|An application of ACO where "nodes" are features. Ants build "paths" representing feature subsets, depositing pheromone on features that contribute to high accuracy.|ACO for Feature Selection|
-|A common drawback of ACO, as it often requires many iterations for the pheromone trails to stabilize and converge to a high-quality solution.|Slow Convergence (ACO)|
-|A drawback of ACO, where a strong positive feedback loop on a "good-but-not-great" path can attract all ants, preventing exploration of the true global optimum.|Local Optimum (ACO)|
-|A drawback of ACO, as running many ants and updating pheromones across all solution components can be time- and memory-intensive.|High Computation (ACO)|
-|A drawback of ACO, as its performance is highly dependent on the "magic values" chosen for $\alpha, \beta, \rho,$ and $m$.|Parameter Sensitive (ACO)|
+| Definition                                                                                                                                                                                                | Answer Word                    |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
+| A metaheuristic where "artificial ants" _constructively build_ solutions (e.g., a path). They deposit "pheromone" on good solution components, which probabilistically attracts more ants.                | Ant Colony Optimization (ACO)  |
+| The simulated chemical trail in ACO used for indirect, environmental memory. Ants deposit it on good solutions, making those components more attractive to future ants.                                   | Pheromone                      |
+| A mechanism of indirect coordination where one agent modifies the environment (e.g., leaves pheromone) and others react to that modification later. This allows complex behavior without central control. | Stigmergy                      |
+| The positive feedback loop in ACO. A good path gets more pheromone, attracting more ants, which deposit more pheromone. Shorter paths reinforce faster, amplifying the best solution's signal.            | Autocatalysis                  |
+| The _a priori_ heuristic in ACO (often $1/d_{ij}$), representing a move's "desirability" _before_ pheromone. This greedy information guides ants, especially early in the search.                         | Visibility ($\eta_{ij}$)       |
+| The process in ACO where pheromone trails decay. This "forgetting" mechanism prevents mediocre paths from "locking in" the swarm, allowing it to forget bad paths and adapt.                              | Pheromone Evaporation ($\rho$) |
+| The path-finding problem that inspired ACO, where real ants find the shortest route between their nest and a food source.                                                                                 | Shortest Path Problem          |
+| The starting point for all ants in an ACO simulation, representing the source node.                                                                                                                       | Nest                           |
+| The target for the ants, representing the destination node or the completion of a solution.                                                                                                               | Food                           |
+| The formula $p_k(i,j)$ that combines pheromone ($\tau$) and visibility ($\eta$) to determine the likelihood of ant $k$ choosing to move from node $i$ to node $j$.                                        | Probability Rule (ACO)         |
+| The _current_ amount of pheromone on an edge or solution component, denoted as $\tau_{ij}$.                                                                                                               | Pheromone Intensity            |
+| The parameter ($\alpha$) that controls the influence of the pheromone trail. A high $\alpha$ makes ants _exploit_ known good paths.                                                                       | Pheromone Weight ($\alpha$)    |
+| The parameter ($\beta$) that controls the influence of the heuristic visibility. A high $\beta$ makes ants act greedily, preferring locally shorter edges.                                                | Visibility Weight ($\beta$)    |
+| The effect of a high $\alpha$ (pheromone weight), where ants strongly follow existing trails, leading to rapid exploitation but risking local optima.                                                     | High $\alpha$ (effect)         |
+| The effect of a high $\beta$ (visibility weight), where ants strongly prefer the locally "best" or "shortest" next step, making the search greedy.                                                        | High $\beta$ (effect)          |
+| The overall process of modifying pheromone levels, combining both evaporation (decay) and deposition (reinforcement).                                                                                     | Pheromone Update Rule          |
+| The formula ($\tau_{ij} \leftarrow (1-\rho) \times \tau_{ij}$) that reduces pheromone strength on all paths over time, allowing the swarm to "forget" bad solutions.                                      | Pheromone Evaporation Formula  |
+| The process of adding new pheromone ($\Delta\tau$) to paths that were part of good solutions found by ants.                                                                                               | Pheromone Deposition           |
+| The amount of pheromone deposited by a single ant $k$ on edge $(i,j)$, often inversely proportional to the ant's total path length $L_k$.                                                                 | $\Delta \tau_{ij}^k$           |
+| A constant (Q) that scales the amount of pheromone deposited by ants.                                                                                                                                     | Pheromone Constant (Q)         |
+| The total length (or cost) of the solution (path) constructed by ant $k$. Shorter $L_k$ leads to higher pheromone deposits.                                                                               | Path Length ($L_k$)            |
+| The total number of ants ($m$) in the population that build solutions in each iteration.                                                                                                                  | Number of Ants (m)             |
+| A key feature of ACO where ants _build_ solutions piece-by-piece rather than starting with a complete solution and improving it.                                                                          | Constructive (Algorithm)       |
+| The probability of an ant moving from one node to another, calculated by the main ACO probability rule.                                                                                                   | Transition Probability         |
+| An application of ACO where "nodes" are features. Ants build "paths" representing feature subsets, depositing pheromone on features that contribute to high accuracy.                                     | ACO for Feature Selection      |
+| A common drawback of ACO, as it often requires many iterations for the pheromone trails to stabilize and converge to a high-quality solution.                                                             | Slow Convergence (ACO)         |
+| A drawback of ACO, where a strong positive feedback loop on a "good-but-not-great" path can attract all ants, preventing exploration of the true global optimum.                                          | Local Optimum (ACO)            |
+| A drawback of ACO, as running many ants and updating pheromones across all solution components can be time- and memory-intensive.                                                                         | High Computation (ACO)         |
+| A drawback of ACO, as its performance is highly dependent on the "magic values" chosen for $\alpha, \beta, \rho,$ and $m$.                                                                                | Parameter Sensitive (ACO)      |
